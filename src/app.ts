@@ -11,6 +11,16 @@ export class App {
         nav: true,
         title: "Home",
       },
+      {
+        route: ["blog-detail/:slug"],
+        name: "blog-detail",
+        moduleId: PLATFORM.moduleName(
+          "resources/pages/blog-detail/blog-detail"
+        ),
+        nav: true,
+        title: "Blog Detail",
+        href: "g",
+      },
     ]);
   }
 }

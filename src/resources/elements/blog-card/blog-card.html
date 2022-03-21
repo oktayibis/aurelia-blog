@@ -1,15 +1,28 @@
 <template>
+  <require from="../../value-converters/date-format"></require>
   <section>
     <h2 class="h1">${blogPost.title}</h2>
-    <p class="text-muted">${blogPost.shortDescription}</p>
-    <div class="image-container py-3">
+    <p class="text-muted">
+      <span if.bind="blogPost.shortDescription"
+        >${blogPost.shortDescription}</span
+      >
+      <small>${blogPost.createdAt | dateFormat}</small>
+    </p>
+
+    <div if.bind="blogPost.image" class="image-container py-3">
       <img
         class="rounded mx-auto d-block"
         src.bind="blogPost.image"
         alt.bind="blogPost.title + '- image' "
       />
     </div>
-    <p>${blogPost.blogText}</p>
+    <p>
+      ${blogPost.body}
+      <a class="btn btn-link" href.bind="'/#/blog-detail/'+ blogPost.slug">
+        Read more
+      </a>
+    </p>
+    `
     <div class="tag-container">
       <span repeat.for="tag of blogPost.tags" class="badge bg-light text-dark"
         >${tag}</span

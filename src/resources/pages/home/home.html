@@ -1,4 +1,4 @@
 <template>
   <require from="../../components/blog-card/blog-card"></require>
-  <blog-card></blog-card>
+  <blog-card repeat.for="post of posts" blog-post.bind="post"></blog-card>
 </template>
